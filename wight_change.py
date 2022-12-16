@@ -1,9 +1,7 @@
 import torch
-import paddle
-import os
 from collections import OrderedDict
-from PaddleClas.model_weight_torch2pd import model as pd_model
-import numpy as np
+from intoPaddleClas.model_weight_torch2pd import model as pd_model
+
 
 def export_weight_names(net):
     print(net.state_dict().keys())

@@ -1,0 +1,573 @@
+EfficientNet(
+  (_ef): ExtractFeatures(
+    (_conv_stem): ConvStemNorm(
+      (_conv): ConvBNLayer(
+        (_conv): Conv2ds(
+          (_conv): Conv2D(3, 16, kernel_size=[3, 3], stride=[2, 2], padding=[2, 2], data_format=NCHW)
+        )
+        (_bn): BatchNorm()
+      )
+    )
+    (_blocks.0.): MbConvBlock(
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(16, 16, kernel_size=[3, 3], padding=[1, 1], groups=16, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(16, 4, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(4, 16, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(16, 8, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (_blocks.1.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(8, 48, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(48, 48, kernel_size=[3, 3], stride=[2, 2], padding=[2, 2], groups=48, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(48, 2, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(2, 48, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(48, 16, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (block.2.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(16, 96, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(96, 96, kernel_size=[3, 3], padding=[1, 1], groups=96, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(96, 4, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(4, 96, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(96, 16, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (_blocks.3.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(16, 96, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(96, 96, kernel_size=[5, 5], stride=[2, 2], padding=[3, 3], groups=96, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(96, 4, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(4, 96, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(96, 24, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (block.4.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(24, 144, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(144, 144, kernel_size=[5, 5], padding=[2, 2], groups=144, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(144, 6, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(6, 144, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(144, 24, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (_blocks.5.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(24, 144, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(144, 144, kernel_size=[3, 3], stride=[2, 2], padding=[2, 2], groups=144, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(144, 6, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(6, 144, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(144, 40, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (block.6.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(40, 240, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(240, 240, kernel_size=[3, 3], padding=[1, 1], groups=240, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(240, 10, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(10, 240, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(240, 40, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (block.7.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(40, 240, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(240, 240, kernel_size=[3, 3], padding=[1, 1], groups=240, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(240, 10, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(10, 240, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(240, 40, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (_blocks.8.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(40, 240, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(240, 240, kernel_size=[5, 5], padding=[2, 2], groups=240, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(240, 10, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(10, 240, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(240, 64, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (block.9.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(64, 384, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(384, 384, kernel_size=[5, 5], padding=[2, 2], groups=384, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(384, 16, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(16, 384, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(384, 64, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (block.10.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(64, 384, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(384, 384, kernel_size=[5, 5], padding=[2, 2], groups=384, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(384, 16, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(16, 384, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(384, 64, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (_blocks.11.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(64, 384, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(384, 384, kernel_size=[5, 5], stride=[2, 2], padding=[3, 3], groups=384, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(384, 16, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(16, 384, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(384, 104, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (block.12.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(104, 624, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(624, 624, kernel_size=[5, 5], padding=[2, 2], groups=624, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(624, 26, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(26, 624, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(624, 104, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (block.13.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(104, 624, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(624, 624, kernel_size=[5, 5], padding=[2, 2], groups=624, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(624, 26, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(26, 624, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(624, 104, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (block.14.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(104, 624, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(624, 624, kernel_size=[5, 5], padding=[2, 2], groups=624, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(624, 26, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(26, 624, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(624, 104, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+    (_blocks.15.): MbConvBlock(
+      (_ecn): ExpandConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(104, 624, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_dcn): DepthwiseConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(624, 624, kernel_size=[3, 3], padding=[1, 1], groups=624, data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+      (_se): SEBlock(
+        (_pool): AdaptiveAvgPool2D(output_size=1)
+        (_conv1): Conv2ds(
+          (_conv): Conv2D(624, 26, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+        (_conv2): Conv2ds(
+          (_conv): Conv2D(26, 624, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+        )
+      )
+      (_pcn): ProjectConvNorm(
+        (_conv): ConvBNLayer(
+          (_conv): Conv2ds(
+            (_conv): Conv2D(624, 176, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+          )
+          (_bn): BatchNorm()
+        )
+      )
+    )
+  )
+  (_conv): ConvBNLayer(
+    (_conv): Conv2ds(
+      (_conv): Conv2D(320, 688, kernel_size=[1, 1], padding=[0, 0], data_format=NCHW)
+    )
+    (_bn): BatchNorm()
+  )
+  (_pool): AdaptiveAvgPool2D(output_size=1)
+  (_drop): Dropout(p=0.5, axis=None, mode=upscale_in_train)
+  (_fc): Linear(in_features=688, out_features=1000, dtype=float32)
+)
