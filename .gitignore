@@ -4,3 +4,4 @@
 *.zip
 PaddleClas/
 tiny-imagenet-200/
+tinynet_paddle2/ckpt_path/

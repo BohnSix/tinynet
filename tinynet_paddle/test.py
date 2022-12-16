@@ -18,7 +18,7 @@ from timm.utils import accuracy, AverageMeter, setup_default_logging
 
 
 """
-python ./test.py ../tiny-imagenet-200 --model_name=tinynet_a
+python ./model_weight_torch2pd.py ../tiny-imagenet-200 --model_name=tinynet_a
 """
 
 # torch.backends.cudnn.benchmark = True
